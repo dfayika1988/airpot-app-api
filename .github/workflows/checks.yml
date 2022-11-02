@@ -2,12 +2,15 @@
 
 name: Checks
 
+### So we're saying we want this particular GitHub actions to run on push, which means any push of changes to our project.
+##So any time we do get comment and then push it up to GitHub, it's going to run the jobs that we specify
+##inside this text YAML file.
 on: [push]
 
 jobs:
   test-lint:
     name: Test and Lint
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-20.04 ##Runs on is the runner that we're going to be running our job on.
     steps:
     - name: Login to Docker Hub
       uses: docker/login-action@v1
