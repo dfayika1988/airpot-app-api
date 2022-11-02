@@ -29,3 +29,9 @@ RUN python -m venv /py && \
 ENV PATH="/py/bin:$PATH"
 
 USER django-user
+
+#So online 15 we did apk add and we installed the PostgreSQL client.So this is the client package that we're going to need installed inside our Alpine image in order for our cycle G2 package to be able to connect to Postgres. So this is the dependency that needs to stay inside the Docker image when we're running it in production.
+#And below that on line 16, we define a new line that said APK and is very similar to the first line, except we have this virtual option here.
+#So it kind of groups the packages that we install into this name called temp build deps and we can use this to remove these packages later on inside our Docker file.
+
+###So once we've been that we then down here on line 23, we remove the temp build deps and all this does is it removes these packages that we installed up here on line 17.
